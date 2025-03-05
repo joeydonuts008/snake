@@ -1,0 +1,22 @@
+let inputdirection = { x: 0, y: 0 };
+
+window.addEventListener('keydown', e => {
+  switch(e.key) {
+    case 'ArrowUp':
+      inputdirection = { x: 0, y: -1 };
+      break;
+    case 'ArrowDown':
+      inputdirection = { x: 0, y: 1 };
+      break;
+    case 'ArrowLeft':
+      inputdirection = { x: -1, y: 0 };
+      break;
+    case 'ArrowRight':
+      inputdirection = { x: 1, y: 0 };
+      break;
+  }
+});
+
+export function getInputDirection() {
+  return inputdirection;
+}
