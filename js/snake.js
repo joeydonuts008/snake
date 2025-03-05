@@ -40,3 +40,23 @@ export function onSnake(position){
      })
 }
 
+export function getSnakeHead(){
+     return snakeBody[0];
+}
+
+export function snakeIntersection(){
+     return onSnake(snakeBody[0], { ignoreHead: true });
+}
+
+function equalPositions(pos1, pos2){
+     return pos1.x === pos2.x && pos1.y === pos2.y;
+}
+
+function addSegments(){
+     for(let i = 0; i < newSegments; i++)
+     {
+          snakebody[snakeBody.length] = { ...snakeBody[snakeBody.length - 1] }; 
+     }
+     newSegments = 0;
+}
+
