@@ -1,3 +1,11 @@
+:root {
+    --background-color: #6f6a6a;
+    --game-board-color: rgb(0, 0, 0);
+    --snake-color: aquamarine;
+    --food-color: red;
+    --border-color: black;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -5,24 +13,40 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000000;
+    background: linear-gradient(135deg, var(--background-color), #3a3a3a);
 }
 
-#game-board{
-    background-color: white;
+#game-board {
+    background-color: var(--game-board-color);
     height: 100vh;
     width: 100vw;
     display: grid;
     grid-template-columns: repeat(21, 1fr);
     grid-template-rows: repeat(21, 1fr);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.snake{
-    background-color: aquamarine;
-    border: .25 vmin solid black;
+.snake {
+    background-color: var(--snake-color);
+    border: .25vmin solid var(--border-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    animation: snake-move 0.5s linear infinite;
 }
 
-.food{
-    background-color: red;
-    border: .25 vmin solid black;
+.food {
+    background-color: var(--food-color);
+    border: .25vmin solid var(--border-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.food:hover {
+    transform: scale(1.1);
+    background-color: darkred;
+}
+
+@keyframes snake-move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
 }
